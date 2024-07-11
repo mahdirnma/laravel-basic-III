@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Fingerprint;
+use App\Models\Person;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,9 +16,21 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+         Person::create([
+             'name' => 'ali',
+             'age' => '21',
+         ]);
+         Person::create([
+             'name' => 'reza',
+             'age' => '35',
+         ]);
+         Fingerprint::create([
+             'year' => '2024',
+             'person_id' => '1',
+         ]);
+         Fingerprint::create([
+             'year' => '2025',
+             'person_id' => '2',
+         ]);
     }
 }

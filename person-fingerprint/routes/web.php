@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Person;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $fingerprint=Person::with("fingerprint")->get();
+    return $fingerprint;
 });
