@@ -23,3 +23,5 @@ Route::get('/login', [UserController::class,'login'])->name('login.show');
 Route::post('/login', [AuthController::class,'login'])->name('login');
 
 Route::get('/admin/product', [ProductController::class,'index'])->name('product.index');
+Route::get('/admin/product/add', [ProductController::class,'add'])->name('product.add');
+Route::post('/admin/product/create', [ProductController::class,'create'])->name('product.create');

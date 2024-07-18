@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('price');
             $table->integer('category_id');
             $table->boolean('entity');
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }

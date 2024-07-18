@@ -1,12 +1,12 @@
 @extends('layout.app')
 @section('title')
-    dashboard
+    products
 @endsection
 @section('content')
     <div class="w-full h-[88%] bg-gray-200 flex items-center justify-center">
         <div class="w-[90%] h-5/6 bg-white rounded-xl pt-3 flex flex-col items-center">
             <div class="w-[90%] h-1/5 flex justify-between items-center border-b">
-                <a href="" class="px-10 py-3 rounded-xl font-light text-white bg-gray-800">افزودن محصول +</a>
+                <a href="{{route('product.add')}}" class="px-10 py-3 rounded-xl font-light text-white bg-gray-800">افزودن محصول +</a>
                 <h2 class="text-xl">محصولات</h2>
             </div>
             <div class="w-[90%] h-3/5 flex justify-between items-center">
@@ -29,7 +29,7 @@
                             <td class="text-center">-</td>
                             <td class="text-center">+</td>
                             <td class="text-center">++</td>
-                            <td class="text-center">{{$product->entity}}</td>
+                            <td class="text-center">{{$product->entity==1?"yes":"no"}}</td>
                             <td class="text-center">{{$product->price}}</td>
                             <td class="text-center">{{$product->description}}</td>
                             <td class="text-center">

@@ -41,7 +41,7 @@ class AuthController extends Controller
             session()->put('user',true);
             return to_route("index");
         }else{
-            return to_route("signin.show");
+            return to_route("login.show");
         }
     }
 }
