@@ -27,7 +27,12 @@
                     @foreach($products as $product)
                         <tr>
                             <td class="text-center">-</td>
-                            <td class="text-center">+</td>
+                            <td class="text-center">
+                                <form action="{{route('product.updatePrice',['product'=>$product->id])}}" method="get">
+                                    @csrf
+                                    <button type="submit" class="text-cyan-600">update price</button>
+                                </form>
+                            </td>
                             <td class="text-center">
                                 <form action="{{route('product.update',['product'=>$product->id])}}" method="get">
                                     @csrf

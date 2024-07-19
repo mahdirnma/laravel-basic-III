@@ -27,3 +27,6 @@ Route::get('/admin/product/add', [ProductController::class,'add'])->name('produc
 Route::post('/admin/product/create', [ProductController::class,'create'])->name('product.create');
 Route::get('/admin/product/{product}/update', [ProductController::class,'update'])->name('product.update');
 Route::put('/admin/product/{product}/edit', [ProductController::class,'edit'])->name('product.edit');
+Route::get('/admin/product/{product}/updatePrice', [ProductController::class,'update_price'])->name('product.updatePrice');
+Route::put('/admin/product/{product}/editPrice', [ProductController::class,'edit_price'])->name('product.editPrice');
+

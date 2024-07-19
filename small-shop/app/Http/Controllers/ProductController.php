@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreProductPriceRequest;
 use App\Http\Requests\StoreProductRequest;
 use App\Models\Category;
 use App\Models\Product;
@@ -72,4 +73,25 @@ class ProductController extends Controller
             return to_route('product.index');
         }
     }
+    public function update_price(Product $product)
+    {
+        if (!session()->has('user')) {
+            return to_route('login.show');
+        }
+        return view('admin.product.update_price',compact('product'));
+    }
+    public function edit_price(Product $product,StoreProductPriceRequest $request){
+        if (!session()->has('user')) {
+            return to_route('login.show');
+        }
+        $price = $request->input('price');
+        $product->update([
+            'price' => $price,
+        ]);
+        if ($product){
+            return to_route('product.index');
+        }
+    }
+
+
 }
