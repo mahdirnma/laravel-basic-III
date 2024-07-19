@@ -28,7 +28,12 @@
                         <tr>
                             <td class="text-center">-</td>
                             <td class="text-center">+</td>
-                            <td class="text-center">++</td>
+                            <td class="text-center">
+                                <form action="{{route('product.update',['product'=>$product->id])}}" method="get">
+                                    @csrf
+                                    <button type="submit" class="text-cyan-600">update</button>
+                                </form>
+                            </td>
                             <td class="text-center">{{$product->entity==1?"yes":"no"}}</td>
                             <td class="text-center">{{$product->price}}</td>
                             <td class="text-center">{{$product->description}}</td>

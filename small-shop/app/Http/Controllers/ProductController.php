@@ -43,4 +43,33 @@ class ProductController extends Controller
         if ($product)
             return to_route('product.index');
     }
+
+    public function update(Product $product)
+    {
+        if (!session()->has('user')) {
+            return to_route('login.show');
+        }
+        $categories = Category::all();
+        return view('admin.product.update',compact('product','categories'));
+    }
+    public function edit(Product $product,StoreProductRequest $request){
+        if (!session()->has('user')) {
+            return to_route('login.show');
+        }
+        $title = $request->input('title');
+        $description = $request->input('description');
+        $price = $request->input('price');
+        $category_id = $request->input('category');
+        $entity= $request->input('entity');
+        $product->update([
+            'title' => $title,
+            'description' => $description,
+            'price' => $price,
+            'category_id' => $category_id,
+            'entity' => $entity,
+        ]);
+        if ($product){
+            return to_route('product.index');
+        }
+    }
 }
